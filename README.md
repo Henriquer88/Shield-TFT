@@ -193,4 +193,89 @@ Para desenharmos um retângulo utilizamos a função  **  tft.drawRoundRect(X,Y,
 *  X1  Tamanho do retângulo em relação ao plano X
 *  Y1  Tamanho do retângulo em relação ao plano Y
 *  S   Arredondamento das laterais do retângulo
-*  
+
+
+Se quisermos fazer um retângulo com uma determinada cor de fundo, devemos utilizar a função  **tft.fillRoundRect(60, 90, 190, 40, 1, BLUE)**
+
+<a href="https://imgur.com/58mXztE"><img src="https://i.imgur.com/58mXztE.jpg" title="source: imgur.com" /></a>
+
+## Criando  Circulos 
+```javascript
+// ************** Display TFT-  ILI9341 Circle************** \\
+
+
+//************************ Biblioteca *****************************************//
+#include "mbed.h"
+#include "Arduino.h"
+#include <MCUFRIEND_kbv.h>
+MCUFRIEND_kbv tft;
+
+//****************************************************************************//
+
+//***********************Orientação  Display**********************************//
+
+
+uint8_t Orientation = 1;  
+
+//****************************************************************************//
+
+
+
+//***********************Tabela de Cores**************************************//
+#define BLACK   0x0000
+#define BLUE    0x001F
+#define RED     0xF800
+#define GREEN   0x07E0
+#define CYAN    0x07FF
+#define MAGENTA 0xF81F
+#define YELLOW  0xFFE0
+#define WHITE   0xFFFF
+
+//****************************************************************************//
+
+//***********************Escrita no  Display**********************************//
+void forma ()
+{
+
+    //tft.drawCircle(150,110,80,WHITE);
+    tft.fillCircle(150,110,80,WHITE);
+    tft.setTextColor(RED);
+    tft.setTextSize(3);
+    tft.setCursor(95, 98); // Orientação X,Y
+    tft.println("CIRCLE");
+
+
+}
+
+//****************************************************************************//
+
+
+
+void setup(void)
+{
+
+    tft.reset();
+    tft.begin();
+    tft.setRotation(Orientation);
+    tft.fillScreen(BLACK);  // Fundo do Display
+    forma();
+    delay(1000);
+}
+
+void loop()
+{
+
+}
+```
+Para desenharmos um círculo utilizamos a função  **  tft.drawCircle(X,Y,R,COR)**
+*  X   Deslocamento  do retañgulo no plano X
+*  Y   Deslocamento  do retângulo no plano Y
+*  R   Raio da circunfência 
+
+Compilando esse código no MBED, teremos o resultado abaixo :
+
+<a href="https://imgur.com/g0Oxw0P"><img src="https://i.imgur.com/g0Oxw0P.jpg" title="source: imgur.com" /></a>
+
+Se quisermos fazer um retângulo com uma determinada cor de fundo, devemos utilizar a função  ** tft.fillCircle(150,110,80,WHITE)**
+
+<a href="https://imgur.com/XV4qUA1"><img src="https://i.imgur.com/XV4qUA1.jpg?1" title="source: imgur.com" /></a>
