@@ -350,3 +350,12 @@ void loop()
   
   Compilando esse código no MBED, teremos o resultado abaixo :
   
+  <a href="https://imgur.com/6QXZmFz"><img src="https://i.imgur.com/6QXZmFz.jpg?1" title="source: imgur.com" /></a>
+  
+  Para desenharmos um círculo utilizamos a função  **  tft.drawTriangle(A,B,C,A1,B1,C1 ,COR)**
+  
+ * (A,A1),(B,B1) e (C,C1)  são os vertíces do triângulo
+
+ Se quisermos fazer um triângulo com uma determinada cor de fundo, devemos utilizar a função  ** tft.fillTriangle(40, 200, 150, 100, 280, 200, WHITE)**  
+ 
+ <a href="https://imgur.com/VieGKzo"><img src="https://i.imgur.com/VieGKzo.jpg" title="source: imgur.com" /></a>
