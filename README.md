@@ -85,7 +85,7 @@ void setup(void)
     tft.reset();
     tft.begin();
     tft.setRotation(Orientation);
-    tft.fillScreen(WHITE);  // Fundo do Display
+    tft.fillScreen(BLACK);  // Fundo do Display
     write();
     delay(1000);
 }
@@ -102,16 +102,95 @@ Compilando esse código no MBED, teremos o resultado abaixo :
 <a href="https://imgur.com/QpR13FC"><img src="https://i.imgur.com/QpR13FC.jpg" title="source: imgur.com" /></a>
 
   Para fazermos a escrita no display, devemos utilizar as seguintes funções :
-*   tft.setTextColor         Define a cor da fonte   
+*  tft.setTextColor          Define a cor da fonte   
 *  tft.setTextSize()         Define o tamnho da fonte a ser exibida no display
-*  tft.setCursor(X,Y)        Define o posicionamento do display no plano XY
+*  tft.setCursor(X,Y)        Define o posicionamento da palavra no plano XY
 *  tft.println(" ")          Escreve uma palavra no display 
 
 
-## Mudando a tela de fundo 
-
-Para fazermos essa mudança, basta executar a função   **tft.fillScreen( Cor )**
+Se quisermos mudar a cor da tela de fundo , devemos utilizar a função  **tft.fillScreen( WHITE )**
 
 <a href="https://imgur.com/mdVP9Ut"><img src="https://i.imgur.com/mdVP9Ut.jpg?1" title="source: imgur.com" /></a>
 
 
+## Criando formas geométricas no display.
+ Utlizando a biblioteca a ADA_GFX_kbv conseguimos criar diversas formas, tais como retângulos, circluos, triângulos etc.
+ 
+ * Criando um Retângulo
+```javascript
+//************************ Biblioteca *****************************************//
+#include "mbed.h"
+#include "Arduino.h"
+#include <MCUFRIEND_kbv.h>
+MCUFRIEND_kbv tft;
+
+//****************************************************************************//
+
+//***********************Orientação  Display**********************************//
+
+
+uint8_t Orientation = 1;  
+
+//****************************************************************************//
+
+
+
+//***********************Tabela de Cores**************************************//
+#define BLACK   0x0000
+#define BLUE    0x001F
+#define RED     0xF800
+#define GREEN   0x07E0
+#define CYAN    0x07FF
+#define MAGENTA 0xF81F
+#define YELLOW  0xFFE0
+#define WHITE   0xFFFF
+
+//****************************************************************************//
+
+//***********************Escrita no  Display**********************************//
+void forma ()
+{
+    //tft.setCursor(100, 50);
+    tft.drawRoundRect(60, 90, 190, 40, 1, WHITE); // (x,y,x1,y1,s)
+    //tft.fillRoundRect(60, 90, 190, 40, 1, BLUE);
+    //tft.fillCircle(250,190,20,WHITE);
+    tft.setTextColor(RED);
+    tft.setTextSize(3);
+    tft.setCursor(70, 98); // Orientação X,Y
+    tft.println("RECTANGLE");
+
+
+}
+
+//****************************************************************************//
+
+
+
+void setup(void)
+{
+
+    tft.reset();
+    tft.begin();
+    tft.setRotation(Orientation);
+    tft.fillScreen(BLACK);  // Fundo do Display
+    forma();
+    delay(1000);
+}
+
+void loop()
+{
+
+}
+```
+
+Compilando esse código no MBED, teremos o resultado abaixo :
+
+<a href="https://imgur.com/yduBaTw"><img src="https://i.imgur.com/yduBaTw.jpg" title="source: imgur.com" /></a>
+
+Para desenharmos um retângulo utilizamos a função  **  tft.drawRoundRect(X,Y,X1,Y1,S COR)**
+*  X   Deslocamento  do retañgulo no plano X
+*  Y   Deslocamento  do retângulo no plano Y
+*  X1  Tamanho do retângulo em relação ao plano X
+*  Y1  Tamanho do retângulo em relação ao plano Y
+*  S   Arredondamento das laterais do retângulo
+*  
