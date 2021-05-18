@@ -279,3 +279,74 @@ Compilando esse código no MBED, teremos o resultado abaixo :
 Se quisermos fazer um retângulo com uma determinada cor de fundo, devemos utilizar a função  ** tft.fillCircle(150,110,80,WHITE)**
 
 <a href="https://imgur.com/XV4qUA1"><img src="https://i.imgur.com/XV4qUA1.jpg?1" title="source: imgur.com" /></a>
+
+ Criando um Triângulo
+ ```javascript
+ // ************** Display TFT-  ILI9341 Triangle******************************\\
+
+
+//************************ Biblioteca *****************************************//
+#include "mbed.h"
+#include "Arduino.h"
+#include <MCUFRIEND_kbv.h>
+MCUFRIEND_kbv tft;
+
+//****************************************************************************//
+
+//***********************Orientação  Display**********************************//
+
+
+uint8_t Orientation = 1;  
+
+//****************************************************************************//
+
+
+
+//***********************Tabela de Cores**************************************//
+#define BLACK   0x0000
+#define BLUE    0x001F
+#define RED     0xF800
+#define GREEN   0x07E0
+#define CYAN    0x07FF
+#define MAGENTA 0xF81F
+#define YELLOW  0xFFE0
+#define WHITE   0xFFFF
+
+//****************************************************************************//
+
+//***********************Escrita no  Display**********************************//
+void forma ()
+{
+
+    tft.drawTriangle(40, 200, 150, 100, 280, 200, WHITE); 
+    tft.setTextColor(RED);
+    tft.setTextSize(3);
+    tft.setCursor(86, 160); // Orientação X,Y
+    tft.println("TRIANGLE");
+
+
+}
+
+//****************************************************************************//
+
+
+
+void setup(void)
+{
+
+    tft.reset();
+    tft.begin();
+    tft.setRotation(Orientation);
+    tft.fillScreen(BLACK);  // Fundo do Display
+    forma();
+    delay(1000);
+}
+
+void loop()
+{
+
+}
+  ```
+  
+  Compilando esse código no MBED, teremos o resultado abaixo :
+  
