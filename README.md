@@ -359,3 +359,66 @@ void loop()
  Se quisermos fazer um triângulo com uma determinada cor de fundo, devemos utilizar a função  ** tft.fillTriangle(40, 200, 150, 100, 280, 200, WHITE)**  
  
  <a href="https://imgur.com/VieGKzo"><img src="https://i.imgur.com/VieGKzo.jpg" title="source: imgur.com" /></a>
+
+
+# Utilizando o Toutch
+
+Antes de utilizarmos o touch é necessário  sua calibração, isso é importantre para mepear os valores dos pontos na tela do display
+
+<a href="https://imgur.com/jaVkSzp"><img src="https://i.imgur.com/jaVkSzp.png" title="source: imgur.com" /></a>
+
+* Calibrando o Touch
+```javascript
+// ************** Display TFT-  ILI9341 Toutch********************************\\
+
+
+//************************ Biblioteca*****************************************//
+#include "mbed.h"
+#include "Arduino.h"
+#include <MCUFRIEND_kbv.h>
+MCUFRIEND_kbv tft;
+#include "TouchScreen_kbv_mbed.h"
+
+//******************************Pinagem do Shield*****************************//
+
+const PinName XP = D8, YP = A3, XM = A2, YM = D9;
+
+
+//***********************Orientação  Display**********************************//
+
+
+uint8_t Orientation = 0;  
+TouchScreen_kbv ts = TouchScreen_kbv(XP, YP, XM, YM,300);
+TSPoint_kbv tp;
+//****************************************************************************//
+
+
+
+Serial pc(USBTX, USBRX);
+
+
+void setup(void)
+{
+
+}
+
+void loop()
+{
+tp = ts.getPoint(); // Função para captura do Touch
+
+  
+pc.printf("\n\r tp.x=%d tp.y=%d   ", tp.x, tp.y);
+     wait(0.5);
+}
+
+```
+ Dados do Touch na serial 
+ 
+ <a href="https://imgur.com/H74NVMu"><img src="https://i.imgur.com/H74NVMu.png" title="source: imgur.com" /></a>
+ 
+ 
+ 
+
+
+
+
