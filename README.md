@@ -365,9 +365,10 @@ void loop()
 
 Antes de utilizarmos o touch é necessário  sua calibração, isso é importantre para mepear os valores dos pontos na tela do display
 
-<a href="https://imgur.com/jaVkSzp"><img src="https://i.imgur.com/jaVkSzp.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/RVW7MT3"><img src="https://i.imgur.com/RVW7MT3.png" title="source: imgur.com" /></a>
 
 * Calibrando o Touch
+
 ```javascript
 // ************** Display TFT-  ILI9341 Toutch********************************\\
 
@@ -379,43 +380,109 @@ Antes de utilizarmos o touch é necessário  sua calibração, isso é important
 MCUFRIEND_kbv tft;
 #include "TouchScreen_kbv_mbed.h"
 
-//******************************Pinagem do Shield*****************************//
+//******************************Configuração do Display***********************//
+const PinName XP = D8, YP = A3, XM = A2, YM = D9; 
+const int TS_LEFT=121,TS_RT=922,TS_TOP=82,TS_BOT=890;
+DigitalInOut YPout(YP);
+DigitalInOut XMout(XM);
+TouchScreen_kbv ts = TouchScreen_kbv(XP, YP, XM, YM);
+TSPoint_kbv tp;
 
-const PinName XP = D8, YP = A3, XM = A2, YM = D9;
+// Valores para detectar a pressão do toque 
+#define MINPRESSURE 10
+#define MAXPRESSURE 1000
 
-
+long map(long x, long in_min, long in_max, long out_min, long out_max)
+{
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
 //***********************Orientação  Display**********************************//
 
+uint8_t Orientation = 0;
 
-uint8_t Orientation = 0;  
-TouchScreen_kbv ts = TouchScreen_kbv(XP, YP, XM, YM,300);
-TSPoint_kbv tp;
 //****************************************************************************//
 
+
+
+//***********************Tabela de Cores**************************************//
+
+#define BLACK   0x0000
+#define BLUE    0x001F
+#define RED     0xF800
+#define GREEN   0x07E0
+#define CYAN    0x07FF
+#define MAGENTA 0xF81F
+#define YELLOW  0xFFE0
+#define WHITE   0xFFFF
+
+//****************************************************************************//
 
 
 Serial pc(USBTX, USBRX);
 
 
+void disp()
+
+{
+    
+        tft.setTextSize(2);
+        tft.setTextColor(MAGENTA,BLACK);
+        
+    while (1) {
+        
+        tp = ts.getPoint();
+        YPout.output();
+        XMout.output(); 
+        
+        tft.setCursor(0, (tft.height() * 2) / 4);
+        tft.printf("tp.x=%d tp.y=%d   ", tp.x, tp.y);
+
+    }
+    
+
+
+}
+
+
+
 void setup(void)
 {
 
+    tft.reset();
+    tft.begin();
+    tft.setRotation(Orientation);
+    tft.fillScreen(BLACK);
+    disp();
 }
 
 void loop()
 {
-tp = ts.getPoint(); // Função para captura do Touch
 
-  
-pc.printf("\n\r tp.x=%d tp.y=%d   ", tp.x, tp.y);
-     wait(0.5);
+
 }
 
+
 ```
- Dados do Touch na serial 
+
+Algumas funçoes importantes para habilitar o touch
+
+* TouchScreen_kbv         -  Biblioteca responsável por conter as funçoes do touch 
+* ts.getPoint()           -  Função para captura dos dados do display
+* uint8_t Orientation     -  Função responsável pela orientação do display
+* tft.printf()            -  Escreve um  valor de uma variável no display
+
+
+Valores obtidos com  calibração medidos as extremidaddes do display:
+
+* Ponto 1 - 894  94
+* Ponto 2 - 891  873
+* Ponto 3 - 164  876
+* Ponto 4 - 164  89
  
- <a href="https://imgur.com/H74NVMu"><img src="https://i.imgur.com/H74NVMu.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/UEgY0eT"><img src="https://i.imgur.com/UEgY0eT.jpg" title="source: imgur.com" /></a>
  
+ 
+ # criando um botão no display Toutch
  
  
 
