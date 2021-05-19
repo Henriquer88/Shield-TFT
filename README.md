@@ -482,7 +482,7 @@ Valores obtidos com  calibração medidos as extremidaddes do display:
 <a href="https://imgur.com/UEgY0eT"><img src="https://i.imgur.com/UEgY0eT.jpg" title="source: imgur.com" /></a>
  
  
- # criando um botão no display Toutch
+ # Criando um botão no display Toutch
  
  
 
