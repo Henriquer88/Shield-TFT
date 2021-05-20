@@ -736,4 +736,4 @@ void loop()
  * L476RG
  * F767ZI
 
- Caso deje incluir um novo modelo de placa, devemos adicionar um novo Target na biblioteca MCUFRIEND_kbv - utility - pin_shield.h
+ Caso queira incluir um novo modelo de placa, devemos adicionar um novo Target na biblioteca MCUFRIEND_kbv - utility - pin_shield.h
