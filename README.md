@@ -482,10 +482,237 @@ Valores obtidos com  calibração medidos as extremidaddes do display:
 <a href="https://imgur.com/UEgY0eT"><img src="https://i.imgur.com/UEgY0eT.jpg" title="source: imgur.com" /></a>
  
  
- # Criando um botão no display Toutch
+ # Criando botões no display toutch screen
  
+ Nesse código criaremos três botôes retângulares, sendo que cada botão corresponde a um determinado comando. Quando fazemos o acionamento de um dos três botões mudamos o preenchimento da área do retângulo, para o batão voltar ao seu estado inicial basata pressiona-lo novamente.
  
+ ```javascript
+ // ************************** Henrique  **************************************//
+
+//  Programa Exemplo 7   - Programa teste para uso de três botões
+
+//
+// ************** Display TFT-  ILI9341 Toutch********************************\\
+
+
+//************************ Biblioteca*****************************************//
+
+
+#include "mbed.h"
+#include "Arduino.h"
+#include <MCUFRIEND_kbv.h>
+MCUFRIEND_kbv tft;
+#include "TouchScreen_kbv_mbed.h"
+
+//************************Configuração do Display*****************************//
+
+const int TS_LEFT=121,TS_RT=922,TS_TOP=82,TS_BOT=890;
+const PinName XP = D8, YP = A3, XM = A2, YM = D9;   //next common configuration
+DigitalInOut YPout(YP);
+DigitalInOut XMout(XM);
+
+
+long map(long x, long in_min, long in_max, long out_min, long out_max)
+{
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+TouchScreen_kbv ts = TouchScreen_kbv(XP, YP, XM, YM, 300);
+TSPoint_kbv tp;
+
+// Valores para detectar a pressão do toque
+#define MINPRESSURE 10
+#define MAXPRESSURE 1000
+//****************************************************************************//
+
+
+//***********************Orientação  Display**********************************//
+
+uint8_t Orientation = 0;
+
+//****************************************************************************//
+bool botao_1 = 0;
+bool botao_2 = 0;
+bool botao_3 = 0;
+//***********************Tabela de Cores**************************************//
+
+#define BLACK   0x0000
+#define BLUE    0x001F
+#define RED     0xF800
+#define GREEN   0x07E0
+#define CYAN    0x07FF
+#define MAGENTA 0xF81F
+#define YELLOW  0xFFE0
+#define WHITE   0xFFFF
+
+//****************************************************************************//
+
+
+void draw()
+
+{
+
+    tft.drawRoundRect(5, 15, 154, 50, 5, WHITE);
+    tft.setTextColor(GREEN);
+    tft.setTextSize(3);
+    tft.setCursor(15, 30);
+    tft.println("Button 1");
+
+    tft.drawRoundRect(5, 70, 154, 50, 5, WHITE);
+    tft.setTextColor(GREEN);
+    tft.setTextSize(3);
+    tft.setCursor(15,85);
+    tft.println("Button 2");
+
+    tft.drawRoundRect(5, 125, 154, 50, 5, WHITE);
+    tft.setTextColor(GREEN);
+    tft.setTextSize(3);
+    tft.setCursor(15,140);
+    tft.println("Button 3");
+
+}
+
+void show_tft(void)
+{
+
+    tft.setTextSize(2);
+
+
+    tft.setTextColor(MAGENTA,BLUE);
+
+
+    while (1) {
+        tp = ts.getPoint();
+        YPout.output();
+        XMout.output();
+
+        if (tp.z < MINPRESSURE && tp.z > MAXPRESSURE)
+
+            tp.x = tft.width() - (map(tp.x, TS_RT, TS_LEFT, tft.width(), 0));
+        tp.y = tft.height() - (map(tp.y, TS_BOT, TS_TOP, tft.height(), 0));
 
 
 
+        if (tp.x>=240&&tp.x<=475 && tp.y>=260&&tp.y<=310) {
+            if(botao_1 ==0) {
+
+                tft.fillRoundRect(5, 15, 154, 50, 5, RED);
+                tft.setTextColor(GREEN);
+                tft.setTextSize(3);
+                tft.setCursor(15, 30);
+                tft.println("Button 1");
+                botao_1 =!botao_1;
+            }
+
+            else {
+
+                tft.fillRoundRect(5, 15, 154, 50, 5, BLACK);
+                tft.drawRoundRect(5, 15, 154, 50, 5, WHITE);
+                tft.setTextColor(GREEN);
+                tft.setTextSize(3);
+                tft.setCursor(15, 30);
+                tft.println("Button 1");
+                botao_1 =!botao_1;
+
+            }
+        }
+
+
+        if (tp.x>=260&&tp.x<=465 && tp.y>=200&&tp.y<=250) {
+            if(botao_2 ==0) {
+
+                tft.fillRoundRect(5, 70, 154, 50, 5, BLUE);
+                tft.setTextColor(GREEN);
+                tft.setTextSize(3);
+                tft.setCursor(15, 85);
+                tft.println("Button 2");
+                botao_2 =!botao_2;
+            }
+
+            else {
+
+
+                tft.fillRoundRect(5, 70, 154, 50, 5, BLACK);
+                tft.drawRoundRect(5, 70, 154, 50, 5, WHITE);
+                tft.setTextColor(GREEN);
+                tft.setTextSize(3);
+                tft.setCursor(15,85);
+                tft.println("Button 2");
+                botao_2 =!botao_2;
+            }
+        }
+
+        if (tp.x>=460&&tp.x<=650 && tp.y>=150&&tp.y<=195) {
+            if(botao_3 ==0) {
+
+                tft.fillRoundRect(5, 125, 154, 50, 5, MAGENTA);
+                tft.setTextColor(GREEN);
+                tft.setTextSize(3);
+                tft.setCursor(15, 140);
+                tft.println("Button 3");
+                botao_3 =!botao_3;
+            }
+
+            else {
+                tft.fillRoundRect(5, 125, 154, 50, 5, BLACK);
+                tft.drawRoundRect(5, 125, 154, 50, 5, WHITE);
+                tft.setTextColor(GREEN);
+                tft.setTextSize(3);
+                tft.setCursor(15,140);
+                tft.println("Button 3");
+                botao_3 =!botao_3;
+            }
+        }
+
+        // tft.setCursor(0, (tft.height() * 3) / 4);
+        // tft.printf("tp.x=%d tp.y=%d   ", tp.x, tp.y);
+
+
+    }
+}
+
+
+
+
+
+void setup(void)
+{
+
+    tft.reset();
+    tft.begin();
+    tft.setRotation(Orientation);
+    tft.fillScreen(BLACK);
+    draw();
+    show_tft();
+
+
+    delay(1000);
+}
+
+void loop()
+{
+
+}
+
+ ```
+ Compilando esse código no MBED, teremos o resultado abaixo :
+ 
+ <a href="https://imgur.com/Lk8BUn0"><img src="https://i.imgur.com/Lk8BUn0.jpg" title="source: imgur.com" /></a>
+ 
+ * Botão 1 pressionado 
+ 
+ <a href="https://imgur.com/FwF1RcQ"><img src="https://i.imgur.com/FwF1RcQ.jpg" title="source: imgur.com" /></a>
+
+ 
+ * Botão 2 pressionado 
+
+ <a href="https://imgur.com/x7RfWcn"><img src="https://i.imgur.com/x7RfWcn.jpg" title="source: imgur.com" /></a>
+ 
+ * Botão 3 pressionado 
+ 
+ <a href="https://imgur.com/BLlVUcE"><img src="https://i.imgur.com/BLlVUcE.jpg" title="source: imgur.com" /></a>
+
+ Por fim um um resumo do que o código faz 
+ 
+ <a href="https://imgur.com/AD7bKWz"><img src="https://i.imgur.com/AD7bKWz.mp4" title="source: imgur.com" /></a>
 
