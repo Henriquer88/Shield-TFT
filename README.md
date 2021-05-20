@@ -2,7 +2,7 @@
 Primeiros passos com o Shield TFT
  
 # Objetivo
- Apresentar as funções básicas do Display tft 2.4 touch , todo o desenvolvimento dos exemplos foi feito no Mbed.
+ Apresentar as funções básicas do Display tft 2.4 touch  todo o desenvolvimento dos exemplos foi feito no Mbed.
  
  # Materiais 
 * Nucleo F103
@@ -15,11 +15,11 @@ Primeiros passos com o Shield TFT
   Datasheet do  controlador do Display  https://cdn-shop.adafruit.com/datasheets/ILI9325.pdf
  
  
- <a href="https://imgur.com/NtV6pqn"><img src="https://i.imgur.com/NtV6pqn.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/NtV6pqn"><img src="https://i.imgur.com/NtV6pqn.png?1" title="source: imgur.com" /></a>
  
  * Pinagem
 
-<a href="https://imgur.com/HqB6b2H"><img src="https://i.imgur.com/HqB6b2H.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/HqB6b2H"><img src="https://i.imgur.com/HqB6b2H.png?1" title="source: imgur.com" /></a>
 
 # Programas e bibliotecas 
 
@@ -35,6 +35,7 @@ Para utilizar o Display TFT Touch precisaremos das três bibliotecas abaixo:
 
 
 ```javascript
+ //   Exemplo 1
 //************************ Biblioteca *****************************************//
 #include "mbed.h"
 #include "Arduino.h"
@@ -99,7 +100,7 @@ void loop()
 ```
 Compilando esse código no MBED, teremos o resultado abaixo :
 
-<a href="https://imgur.com/QpR13FC"><img src="https://i.imgur.com/QpR13FC.jpg" title="source: imgur.com" /></a>
+<a href="https://imgur.com/QpR13FC"><img src="https://i.imgur.com/QpR13FC.jpg?1" title="source: imgur.com" /></a>
 
   Para fazermos a escrita no display, devemos utilizar as seguintes funções :
 *  tft.setTextColor          Define a cor da fonte   
@@ -110,7 +111,7 @@ Compilando esse código no MBED, teremos o resultado abaixo :
 
 Se quisermos mudar a cor da tela de fundo , devemos utilizar a função  **tft.fillScreen( WHITE )**
 
-<a href="https://imgur.com/mdVP9Ut"><img src="https://i.imgur.com/mdVP9Ut.jpg?1" title="source: imgur.com" /></a>
+<a href="https://imgur.com/mdVP9Ut"><img src="https://i.imgur.com/mdVP9Ut.jpg?2" title="source: imgur.com" /></a>
 
 
 ## Criando formas geométricas no display.
@@ -118,6 +119,7 @@ Se quisermos mudar a cor da tela de fundo , devemos utilizar a função  **tft.f
  
  * Criando um Retângulo
 ```javascript
+ //   Exemplo 2
 //************************ Biblioteca *****************************************//
 #include "mbed.h"
 #include "Arduino.h"
@@ -185,7 +187,7 @@ void loop()
 
 Compilando esse código no MBED, teremos o resultado abaixo :
 
-<a href="https://imgur.com/yduBaTw"><img src="https://i.imgur.com/yduBaTw.jpg" title="source: imgur.com" /></a>
+<a href="https://imgur.com/yduBaTw"><img src="https://i.imgur.com/yduBaTw.jpg?1" title="source: imgur.com" /></a>
 
 Para desenharmos um retângulo utilizamos a função  **  tft.drawRoundRect(X,Y,X1,Y1,S COR)**
 *  X   Deslocamento  do retañgulo no plano X
@@ -197,10 +199,11 @@ Para desenharmos um retângulo utilizamos a função  **  tft.drawRoundRect(X,Y,
 
 Se quisermos fazer um retângulo com uma determinada cor de fundo, devemos utilizar a função  **tft.fillRoundRect(60, 90, 190, 40, 1, BLUE)**
 
-<a href="https://imgur.com/58mXztE"><img src="https://i.imgur.com/58mXztE.jpg" title="source: imgur.com" /></a>
+<a href="https://imgur.com/58mXztE"><img src="https://i.imgur.com/58mXztE.jpg?1" title="source: imgur.com" /></a>
 
-## Criando  Circulos 
+# Criando  Circulos 
 ```javascript
+ //   Exemplo 3
 // ************** Display TFT-  ILI9341 Circle************** \\
 
 
@@ -237,8 +240,8 @@ uint8_t Orientation = 1;
 void forma ()
 {
 
-    //tft.drawCircle(150,110,80,WHITE);
-    tft.fillCircle(150,110,80,WHITE);
+    tft.drawCircle(150,110,80,WHITE);
+    //tft.fillCircle(150,110,80,WHITE);
     tft.setTextColor(RED);
     tft.setTextSize(3);
     tft.setCursor(95, 98); // Orientação X,Y
@@ -274,14 +277,15 @@ Para desenharmos um círculo utilizamos a função  **  tft.drawCircle(X,Y,R,COR
 
 Compilando esse código no MBED, teremos o resultado abaixo :
 
-<a href="https://imgur.com/g0Oxw0P"><img src="https://i.imgur.com/g0Oxw0P.jpg" title="source: imgur.com" /></a>
+<a href="https://imgur.com/g0Oxw0P"><img src="https://i.imgur.com/g0Oxw0P.jpg?1" title="source: imgur.com" /></a>
 
 Se quisermos fazer um retângulo com uma determinada cor de fundo, devemos utilizar a função  ** tft.fillCircle(150,110,80,WHITE)**
 
-<a href="https://imgur.com/XV4qUA1"><img src="https://i.imgur.com/XV4qUA1.jpg?1" title="source: imgur.com" /></a>
+<a href="https://imgur.com/XV4qUA1"><img src="https://i.imgur.com/XV4qUA1.jpg?2" title="source: imgur.com" /></a>
 
- Criando um Triângulo
+# Criando um Triângulo
  ```javascript
+  //   Exemplo 4
  // ************** Display TFT-  ILI9341 Triangle******************************\\
 
 
@@ -350,18 +354,18 @@ void loop()
   
   Compilando esse código no MBED, teremos o resultado abaixo :
   
-  <a href="https://imgur.com/6QXZmFz"><img src="https://i.imgur.com/6QXZmFz.jpg?1" title="source: imgur.com" /></a>
+  <a href="https://imgur.com/6QXZmFz"><img src="https://i.imgur.com/6QXZmFz.jpg?2" title="source: imgur.com" /></a>
   
   Para desenharmos um círculo utilizamos a função  **  tft.drawTriangle(A,B,C,A1,B1,C1 ,COR)**
   
- * (A,A1),(B,B1) e (C,C1)  são os vertíces do triângulo
+  * (A,A1),(B,B1) e (C,C1)  são os vertíces do triângulo
 
- Se quisermos fazer um triângulo com uma determinada cor de fundo, devemos utilizar a função  ** tft.fillTriangle(40, 200, 150, 100, 280, 200, WHITE)**  
+  Se quisermos fazer um triângulo com uma determinada cor de fundo, devemos utilizar a função  ** tft.fillTriangle(40, 200, 150, 100, 280, 200, WHITE)**  
  
- <a href="https://imgur.com/VieGKzo"><img src="https://i.imgur.com/VieGKzo.jpg" title="source: imgur.com" /></a>
+  <a href="https://imgur.com/VieGKzo"><img src="https://i.imgur.com/VieGKzo.jpg?1" title="source: imgur.com" /></a>
 
 
-# Utilizando o Toutch
+# Utilizando o toutch screen
 
 Antes de utilizarmos o touch é necessário  sua calibração, isso é importantre para mepear os valores dos pontos na tela do display
 
@@ -370,6 +374,7 @@ Antes de utilizarmos o touch é necessário  sua calibração, isso é important
 * Calibrando o Touch
 
 ```javascript
+ //   Exemplo 5
 // ************** Display TFT-  ILI9341 Toutch********************************\\
 
 
@@ -478,8 +483,10 @@ Valores obtidos com  calibração medidos as extremidaddes do display:
 * Ponto 2 - 891  873
 * Ponto 3 - 164  876
 * Ponto 4 - 164  89
- 
-<a href="https://imgur.com/UEgY0eT"><img src="https://i.imgur.com/UEgY0eT.jpg" title="source: imgur.com" /></a>
+
+ Valores X e Y  na tela do display
+
+<a href="https://imgur.com/UEgY0eT"><img src="https://i.imgur.com/UEgY0eT.jpg?1" title="source: imgur.com" /></a>
  
  
  # Criando botões no display toutch screen
@@ -487,6 +494,7 @@ Valores obtidos com  calibração medidos as extremidaddes do display:
  Nesse código criaremos três botôes retângulares, sendo que cada botão corresponde a um determinado comando. Quando fazemos o acionamento de um dos três botões mudamos o preenchimento da área do retângulo, para o botão voltar ao seu estado inicial basata pressiona-lo novamente.
  
  ```javascript
+  //   Exemplo 6
  // ************************** Henrique  **************************************//
 
 //  Programa Exemplo 7   - Programa teste para uso de três botões
@@ -697,11 +705,11 @@ void loop()
  ```
  Compilando esse código no MBED, teremos o resultado abaixo :
  
- <a href="https://imgur.com/Lk8BUn0"><img src="https://i.imgur.com/Lk8BUn0.jpg" title="source: imgur.com" /></a>
+<a href="https://imgur.com/Lk8BUn0"><img src="https://i.imgur.com/Lk8BUn0.jpg?2" title="source: imgur.com" /></a>
  
  ## Botão 1 pressionado 
  
- <a href="https://imgur.com/FwF1RcQ"><img src="https://i.imgur.com/FwF1RcQ.jpg" title="source: imgur.com" /></a>
+ <a href="https://imgur.com/FwF1RcQ"><img src="https://i.imgur.com/FwF1RcQ.jpg?1" title="source: imgur.com" /></a>
 
  
  ## Botão 2 pressionado 
@@ -710,7 +718,7 @@ void loop()
  
  ## Botão 3 pressionado 
  
- <a href="https://imgur.com/BLlVUcE"><img src="https://i.imgur.com/BLlVUcE.jpg" title="source: imgur.com" /></a>
+ <a href="https://imgur.com/BLlVUcE"><img src="https://i.imgur.com/BLlVUcE.jpg?3" title="source: imgur.com" /></a>
 
  ## Resultado final
  
