@@ -484,7 +484,7 @@ Valores obtidos com  calibração medidos as extremidaddes do display:
  
  # Criando botões no display toutch screen
  
- Nesse código criaremos três botôes retângulares, sendo que cada botão corresponde a um determinado comando. Quando fazemos o acionamento de um dos três botões mudamos o preenchimento da área do retângulo, para o batão voltar ao seu estado inicial basata pressiona-lo novamente.
+ Nesse código criaremos três botôes retângulares, sendo que cada botão corresponde a um determinado comando. Quando fazemos o acionamento de um dos três botões mudamos o preenchimento da área do retângulo, para o botão voltar ao seu estado inicial basata pressiona-lo novamente.
  
  ```javascript
  // ************************** Henrique  **************************************//
@@ -714,5 +714,5 @@ void loop()
 
  ## Resultado final
  
-<iframe class="imgur-embed" width="100%" height="390" frameborder="0" src="https://i.imgur.com/6ArRHkL.gifv#embed"></iframe>
+<a href="https://imgur.com/7citGbp"><img src="https://i.imgur.com/7citGbp.gif" title="source: imgur.com" /></a>
 
