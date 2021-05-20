@@ -11,7 +11,7 @@ Primeiros passos com o Shield TFT
 
 # Display TFT 2.4
  
- Esse display tft de 2,4¨ tem resolução de 320×240 pixels, com um esquema de cores de 18 bits que permite a exibição de até 262.000 tonalidades diferentes, tela touch resistiva e   um slot para cartão microSD, tudo isso controlado pelo driver ILI9325 além de possuir comunicação paralela.
+ Esse display tft de 2,4¨ tem resolução de 320×240 pixels, com um esquema de cores de 18 bits que permite a exibição de até 262.000 tonalidades diferentes, tela touch resistiva e  um slot para cartão microSD, tudo isso controlado pelo driver ILI9325 além de possuir comunicação paralela.
   Datasheet do  controlador do Display  https://cdn-shop.adafruit.com/datasheets/ILI9325.pdf
  
  
@@ -270,7 +270,7 @@ void loop()
 
 }
 ```
-Para desenharmos um círculo utilizamos a função  **  tft.drawCircle(X,Y,R,COR)**
+Para desenharmos um círculo utilizamos a função  **tft.drawCircle(X,Y,R,COR)**
 *  X   Deslocamento  do retañgulo no plano X
 *  Y   Deslocamento  do retângulo no plano Y
 *  R   Raio da circunfência 
@@ -279,7 +279,7 @@ Compilando esse código no MBED, teremos o resultado abaixo :
 
 <a href="https://imgur.com/g0Oxw0P"><img src="https://i.imgur.com/g0Oxw0P.jpg?1" title="source: imgur.com" /></a>
 
-Se quisermos fazer um retângulo com uma determinada cor de fundo, devemos utilizar a função  ** tft.fillCircle(150,110,80,WHITE)**
+Se quisermos fazer um retângulo com uma determinada cor de fundo, devemos utilizar a função  **tft.fillCircle(150,110,80,WHITE)**
 
 <a href="https://imgur.com/XV4qUA1"><img src="https://i.imgur.com/XV4qUA1.jpg?2" title="source: imgur.com" /></a>
 
@@ -356,11 +356,11 @@ void loop()
   
   <a href="https://imgur.com/6QXZmFz"><img src="https://i.imgur.com/6QXZmFz.jpg?2" title="source: imgur.com" /></a>
   
-  Para desenharmos um círculo utilizamos a função  **  tft.drawTriangle(A,B,C,A1,B1,C1 ,COR)**
+  Para desenharmos um círculo utilizamos a função  **tft.drawTriangle(A,B,C,A1,B1,C1 ,COR)**
   
   * (A,A1),(B,B1) e (C,C1)  são os vertíces do triângulo
 
-  Se quisermos fazer um triângulo com uma determinada cor de fundo, devemos utilizar a função  ** tft.fillTriangle(40, 200, 150, 100, 280, 200, WHITE)**  
+  Se quisermos fazer um triângulo com uma determinada cor de fundo, devemos utilizar a função  **tft.fillTriangle(40, 200, 150, 100, 280, 200, WHITE)**  
  
   <a href="https://imgur.com/VieGKzo"><img src="https://i.imgur.com/VieGKzo.jpg?1" title="source: imgur.com" /></a>
 
@@ -597,7 +597,7 @@ void show_tft(void)
         if (tp.z < MINPRESSURE && tp.z > MAXPRESSURE)
 
             tp.x = tft.width() - (map(tp.x, TS_RT, TS_LEFT, tft.width(), 0));
-        tp.y = tft.height() - (map(tp.y, TS_BOT, TS_TOP, tft.height(), 0));
+            tp.y = tft.height() - (map(tp.y, TS_BOT, TS_TOP, tft.height(), 0));
 
 
 
@@ -724,3 +724,16 @@ void loop()
  
 <a href="https://imgur.com/7citGbp"><img src="https://i.imgur.com/7citGbp.gif" title="source: imgur.com" /></a>
 
+## Observações 
+ As biliotecas utilizadas nos exemplos estão implementadas só para alguns modelos de Nucleo, são elas:
+ 
+ * F072RB
+ * F103RB
+ * F401RE
+ * F411RE
+ * F446RE
+ * L4333RC
+ * L476RG
+ * F767ZI
+
+ Caso deje incluir um novo modelo de placa, devemos adicionar um novo Target na biblioteca MCUFRIEND_kbv - utility - pin_shield.h
