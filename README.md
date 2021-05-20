@@ -699,20 +699,20 @@ void loop()
  
  <a href="https://imgur.com/Lk8BUn0"><img src="https://i.imgur.com/Lk8BUn0.jpg" title="source: imgur.com" /></a>
  
- * Botão 1 pressionado 
+ ## Botão 1 pressionado 
  
  <a href="https://imgur.com/FwF1RcQ"><img src="https://i.imgur.com/FwF1RcQ.jpg" title="source: imgur.com" /></a>
 
  
- * Botão 2 pressionado 
+ ## Botão 2 pressionado 
 
  <a href="https://imgur.com/x7RfWcn"><img src="https://i.imgur.com/x7RfWcn.jpg" title="source: imgur.com" /></a>
  
- * Botão 3 pressionado 
+ ## Botão 3 pressionado 
  
  <a href="https://imgur.com/BLlVUcE"><img src="https://i.imgur.com/BLlVUcE.jpg" title="source: imgur.com" /></a>
 
- Por fim um um resumo do que o código faz 
+ ## Resultado final
  
- <a href="https://imgur.com/AD7bKWz"><img src="https://i.imgur.com/AD7bKWz.mp4" title="source: imgur.com" /></a>
+<iframe class="imgur-embed" width="100%" height="390" frameborder="0" src="https://i.imgur.com/6ArRHkL.gifv#embed"></iframe>
 
