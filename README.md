@@ -1,8 +1,8 @@
-# Shield-TFT-
+# Shield-TFT
 Primeiros passos com o Shield TFT
  
 # Objetivo
- Apresentar as funções básicas do Display tft 2.4 touch  todo o desenvolvimento dos exemplos foi feito no Mbed.
+ Apresentar as funções básicas do Display tft 2.4 touch screen.
  
  # Materiais 
 * Nucleo F103
@@ -11,7 +11,7 @@ Primeiros passos com o Shield TFT
 
 # Display TFT 2.4
  
- Esse display tft de 2,4¨ tem resolução de 320×240 pixels, com um esquema de cores de 18 bits que permite a exibição de até 262.000 tonalidades diferentes, tela touch resistiva e  um slot para cartão microSD, tudo isso controlado pelo driver ILI9325 além de possuir comunicação paralela.
+ Esse display tft de 2,4¨ tem resolução de 320×240 pixels, com um esquema de cores de 18 bits que permitem a exibição de até 262.000 tonalidades diferentes, tela touch resistiva e  um slot para cartão microSD mais controlador ILI9325 e protocolo de comunicação paralela.
   Datasheet do  controlador do Display  https://cdn-shop.adafruit.com/datasheets/ILI9325.pdf
  
  
@@ -23,13 +23,13 @@ Primeiros passos com o Shield TFT
 
 # Programas e bibliotecas 
 
-Para utilizar o Display TFT Touch precisaremos das três bibliotecas abaixo:
+Para utilizar o Display TFT Touch, precisaremos das três bibliotecas abaixo:
 
 * ADA_GFX_kbv
 * MCUFRIEND
 * TFT_TOUCHSHIELD
 
-# Progarmas 
+# Programas 
 
 ##  Escrevendo no Display
 
@@ -115,7 +115,7 @@ Se quisermos mudar a cor da tela de fundo , devemos utilizar a função  **tft.f
 
 
 ## Criando formas geométricas no display.
- Utlizando a biblioteca a ADA_GFX_kbv conseguimos criar diversas formas, tais como retângulos, circluos, triângulos etc.
+ Utlizando a biblioteca a ADA_GFX_kbv, conseguimos criar diversas formas, tais como retângulos, círculos, triângulos etc.
  
  * Criando um Retângulo
 ```javascript
@@ -189,7 +189,7 @@ Compilando esse código no MBED, teremos o resultado abaixo :
 
 <a href="https://imgur.com/yduBaTw"><img src="https://i.imgur.com/yduBaTw.jpg?1" title="source: imgur.com" /></a>
 
-Para desenharmos um retângulo utilizamos a função  **  tft.drawRoundRect(X,Y,X1,Y1,S COR)**
+Para desenharmos um retângulo, utilizamos a função  **tft.drawRoundRect(X,Y,X1,Y1,S COR)**
 *  X   Deslocamento  do retañgulo no plano X
 *  Y   Deslocamento  do retângulo no plano Y
 *  X1  Tamanho do retângulo em relação ao plano X
@@ -201,7 +201,7 @@ Se quisermos fazer um retângulo com uma determinada cor de fundo, devemos utili
 
 <a href="https://imgur.com/58mXztE"><img src="https://i.imgur.com/58mXztE.jpg?1" title="source: imgur.com" /></a>
 
-# Criando  Circulos 
+# Criando  Círculos 
 ```javascript
  //   Exemplo 3
 // ************** Display TFT-  ILI9341 Circle************** \\
@@ -270,12 +270,12 @@ void loop()
 
 }
 ```
-Para desenharmos um círculo utilizamos a função  **tft.drawCircle(X,Y,R,COR)**
+Para desenharmos um círculo, utilizamos a função  **tft.drawCircle(X,Y,R,COR)**
 *  X   Deslocamento  do retañgulo no plano X
 *  Y   Deslocamento  do retângulo no plano Y
 *  R   Raio da circunfência 
 
-Compilando esse código no MBED, teremos o resultado abaixo :
+Compilando esse código no MBED, teremos o seguinte resultado:
 
 <a href="https://imgur.com/g0Oxw0P"><img src="https://i.imgur.com/g0Oxw0P.jpg?1" title="source: imgur.com" /></a>
 
@@ -352,11 +352,11 @@ void loop()
 }
   ```
   
-  Compilando esse código no MBED, teremos o resultado abaixo :
+  Compilando esse código no MBED, teremos o seguinte resultado:
   
   <a href="https://imgur.com/6QXZmFz"><img src="https://i.imgur.com/6QXZmFz.jpg?2" title="source: imgur.com" /></a>
   
-  Para desenharmos um círculo utilizamos a função  **tft.drawTriangle(A,B,C,A1,B1,C1 ,COR)**
+  Para desenharmos um círculo, utilizamos a função  **tft.drawTriangle(A,B,C,A1,B1,C1 ,COR)**
   
   * (A,A1),(B,B1) e (C,C1)  são os vertíces do triângulo
 
@@ -365,9 +365,9 @@ void loop()
   <a href="https://imgur.com/VieGKzo"><img src="https://i.imgur.com/VieGKzo.jpg?1" title="source: imgur.com" /></a>
 
 
-# Utilizando o toutch screen
+# Utilizando o touch screen
 
-Antes de utilizarmos o touch é necessário  sua calibração, isso é importantre para mepear os valores dos pontos na tela do display
+Antes de utilizarmos o touch, é necessário calibrá-lo. Isso é importantre para mapear os valores dos pontos na tela do display
 
 <a href="https://imgur.com/RVW7MT3"><img src="https://i.imgur.com/RVW7MT3.png" title="source: imgur.com" /></a>
 
@@ -469,15 +469,15 @@ void loop()
 
 ```
 
-Algumas funçoes importantes para habilitar o touch
+Algumas funções importantes para habilitar o touch:
 
-* TouchScreen_kbv         -  Biblioteca responsável por conter as funçoes do touch 
+* TouchScreen_kbv         -  Biblioteca responsável por conter as funções do touch 
 * ts.getPoint()           -  Função para captura dos dados do display
 * uint8_t Orientation     -  Função responsável pela orientação do display
 * tft.printf()            -  Escreve um  valor de uma variável no display
 
 
-Valores obtidos com  calibração medidos as extremidaddes do display:
+Valores obtidos com  calibração medindo as extremidaddes do display:
 
 * Ponto 1 - 894  94
 * Ponto 2 - 891  873
@@ -489,9 +489,9 @@ Valores obtidos com  calibração medidos as extremidaddes do display:
 <a href="https://imgur.com/UEgY0eT"><img src="https://i.imgur.com/UEgY0eT.jpg?1" title="source: imgur.com" /></a>
  
  
- # Criando botões no display toutch screen
+ # Criando botões no display touch screen
  
- Nesse código criaremos três botôes retângulares, sendo que cada botão corresponde a um determinado comando. Quando fazemos o acionamento de um dos três botões mudamos o preenchimento da área do retângulo, para o botão voltar ao seu estado inicial basata pressiona-lo novamente.
+ Nesse código criaremos três botôes retângulares, sendo que cada botão corresponde a um determinado comando. Quando fazemos o acionamento de um dos três botões, mudamos o preenchimento da área do retângulo. Para o botão voltar ao seu estado inicial, basta pressioná-lo novamente.
  
  ```javascript
   //   Exemplo 6
@@ -703,7 +703,7 @@ void loop()
 }
 
  ```
- Compilando esse código no MBED, teremos o resultado abaixo :
+ Compilando esse código no MBED, teremos o seguinte resultado:
  
 <a href="https://imgur.com/Lk8BUn0"><img src="https://i.imgur.com/Lk8BUn0.jpg?2" title="source: imgur.com" /></a>
  
@@ -725,7 +725,7 @@ void loop()
 <a href="https://imgur.com/7citGbp"><img src="https://i.imgur.com/7citGbp.gif" title="source: imgur.com" /></a>
 
 ## Observações 
- As biliotecas utilizadas nos exemplos estão implementadas só para alguns modelos de Nucleo, são elas:
+ As bibliotecas utilizadas nos exemplos estão implementadas apenas para alguns modelos de Nucleo, são elas:
  
  * F072RB
  * F103RB
