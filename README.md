@@ -1,18 +1,22 @@
+Autor: Henrique Rosa  [link](https://github.com/https://github.com/Henriquer88)
+
+Repositóio no MBED [link](https://os.mbed.com/users/henriquer/code/)
 # Shield-TFT
 Primeiros passos com o Shield TFT
- 
+
+
 # Objetivo
  Apresentar as funções básicas do Display tft 2.4 touch screen.
  
  # Materiais 
 * Nucleo F103
-* Compilador MBED https://os.mbed.com/
+* Compilador MBED [link](https://os.mbed.com/)
 * Display 2.4 Touch
 
 # Display TFT 2.4
  
- Esse display tft de 2,4¨ tem resolução de 320×240 pixels, com um esquema de cores de 18 bits que permitem a exibição de até 262.000 tonalidades diferentes, tela touch resistiva e  um slot para cartão microSD mais controlador ILI9325 e protocolo de comunicação paralela.
-  Datasheet do  controlador do Display  https://cdn-shop.adafruit.com/datasheets/ILI9325.pdf
+ Esse display tft de 2,4¨ tem resolução de 320×240 pixels, com um esquema de cores de 18 bits que permitem a exibição de até 262.000 tonalidades diferentes, tela touch    resistiva e  um slot para cartão microSD mais controlador ILI9341 e protocolo de comunicação paralela.
+  Datasheet do  controlador do Display [link](https://cdn-shop.adafruit.com/datasheets/ILI9341.pdf)
  
  
 <a href="https://imgur.com/NtV6pqn"><img src="https://i.imgur.com/NtV6pqn.png?1" title="source: imgur.com" /></a>
